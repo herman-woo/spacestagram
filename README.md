@@ -18,15 +18,15 @@ Each post here contains the name of the user and link to the profile, the date o
 The home page will show posts from `today`, `yesterday` and up to 15 `earlier posts`.
 
 #### Search Page
-The search page allows users to filter a collection of posts according to dates which posts exist for. When the users click on the icons of the results they will be brought to the post's main page.
+The search page allows users to filter a collection of posts according to dates which posts exist for. When the users click on the icons of the results they will be brought to the `post's main page`.
 
 #### Liked Posts Page
-Whenever a user likes a post, this page will be updated to include every post the user has liked. These posts are arranged arrocding to the date of posting. The user can visit the post's main page by clicking on the icons that show up.
+Whenever a user likes a post, this page will be updated to include every post the user has liked. These posts are arranged arrocding to the date of posting. The user can visit the `post's main page` by clicking on the icons that show up.
 
 #### Post's Main Page
 Though this page is not accessible on the bottom toolbar, users will be able to visit this page via home page posts, or search results/saved posts. This page contains a larger image of the post image and contains the full display of the description. Users can visit post pages via url directly.
 
-#### Profile pages
+#### Profile Page
 Accessible by clicking on blue colored user names on each post, the user will be taken to the page of the oringal posted and will be presented with every post from that user currently available.
 
 ## Public Application
