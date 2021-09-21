@@ -35,6 +35,9 @@ The production build of the application is hosted on Github Pages and can be vis
 ## Local Application Setup
 If you clone this repo and launch it locally, the application can be set up via: `npm install` and `npm start`
 
+## Accessiblility 
+This project has been designed for both mobile and desktop experiences. The viewport and icon sizes will change according to the size of the window viewing it.
+
 ## Notes
 ### Next Steps
 - Currently user information is stored locally, I hope to enable users to create their own accounts to follow and like profiles and posts on their own, customizing their homepage feed accordingly.
