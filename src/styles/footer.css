@@ -1,0 +1,55 @@
+.liked{
+  background-image: url(./icons/unlike.svg);
+}
+.add{
+    background-image: url(../imgs/default.jpg);
+}
+footer{
+    background-color: white;
+    position: fixed;
+    bottom: 0px;
+    z-index: 1;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0 30px 70px 5px gray;
+    border-top: 1px solid rgb(224, 224, 224);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer-dashboard{
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-icon{
+    height: 45px;
+    width: 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:60%;
+    border: none;
+  }
+  .footer-icon:hover{
+    cursor: pointer;
+  }
+.home{
+    background-image: url(./icons/home.svg);    
+}
+
+.search{
+    background-image: url(./icons/search.svg);
+}
+@media(max-width:600px){
+    .footer-dashboard{
+        width: 100%;
+        justify-content: center;
+    }
+    .footer-icon{
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+  }

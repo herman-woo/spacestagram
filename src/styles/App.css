@@ -1,0 +1,133 @@
+a{
+  text-decoration: none;
+  color: rgba(0, 110, 255, 0.884);
+}
+a:hover{
+  color: rgb(0, 81, 255);  
+}
+.app{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.app-date{
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.app-logo{
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.app-user{
+  height: 50px;
+  width: auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+}
+.app-user-image{
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+  background-position: center;
+  background-size: cover;
+}
+button{
+  border: none;
+  background-color: white;
+}
+.liked-header{
+  margin: 30px;
+}
+#loading{
+  background-color: rgb(247, 247, 247);
+  margin-top: 30vh;
+  background-image: url(./icons/sync.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50px;
+  width: 50px;
+  transform: "scale(2,2) scale(-1,1)";
+  animation-name: loader;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+.home-body{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-subtitle{
+  width: 100%;
+  margin-bottom: 1vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+main{
+  margin-top: 110px;
+  margin-bottom: 50px;
+  min-height: 90vh;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media(max-width:800px){
+  main{
+    margin-top: 60px;
+  }
+  .home-body{
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .home-subtitle{
+    align-items: center;
+  }
+}
+@media(max-width:600px){
+  main{
+    margin-top: 65px;
+  }
+  .app-user-image{
+    height: 20px;
+    width: 20px;
+  }
+  .app-user-name{
+    width: 80px;
+  }
+  h3{
+    font-size: 15px;
+  }
+  .home-body{
+    margin-top: 30px;
+  }
+}
+#top{
+  margin-top: 50px;
+  height: 170px;
+}

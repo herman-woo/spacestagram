@@ -1,0 +1,28 @@
+[
+    {
+        "username": "Herman Woo",
+        "displayPic": "https://avatars.githubusercontent.com/u/72119202?v=4",
+        "description": "My Personal Account"
+    },
+    {
+        "username": "NasaAPOD",
+        "displayPic": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/NGC_4414_%28NASA-med%29.jpg/726px-NGC_4414_%28NASA-med%29.jpg",
+        "description": "Astronomy Photo of the Day"
+    },    
+    {
+        "username": "CuriosityRover",
+        "displayPic": "https://mars.nasa.gov/system/feature_items/images/6037_msl_banner.jpg",
+        "description": "Visions of Mars"
+    },    
+    {
+        "username": "OpportunityRover",
+        "displayPic": "https://upload.wikimedia.org/wikipedia/commons/d/d8/NASA_Mars_Rover.jpg",
+        "description": "Mars Exploration Rover – B"
+    },
+    {
+        "username": "SpiritRover",
+        "displayPic": "https://upload.wikimedia.org/wikipedia/commons/d/d8/NASA_Mars_Rover.jpg",
+        "description": "Mars Exploration Rover – A"
+    }
+
+]
