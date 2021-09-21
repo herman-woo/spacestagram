@@ -34,3 +34,19 @@ The production build of the application is hosted on Github Pages and can be vis
 
 ## Local Application Setup
 If you clone this repo and launch it locally, the application can be set up via: `npm install` and `npm start`
+
+## Notes
+### Next Steps
+- Currently user information is stored locally, I hope to enable users to create their own accounts to follow and like profiles and posts on their own, customizing their homepage feed accordingly.
+- Use CircleCI to create a full CI/CD cycle, once the backend is also built and hosted.
+- use BCrypt to enable password salt and peppring
+- use JWTs for web authentication
+- integrate with a PostgreSQL db on AWS RDS
+
+### Final Thoughts (for now)
+This is the most in-depth front end web application I've developed since starting out learning webdev. It was a lot of fun to make and I learnt a lot from this experience. One of the most satisfying things to figure out this time was learning to use HashRouting so that when hosted, each linked page can be reloaded, as opposed to only needing to use the root page. Along with that I needed to create a dynamic routing system and grab the url parameters to ultimate get the appropriate data from the store. 
+All-in-all, though I still feel far from finished with this particular project, I'm pretty proud of the progress and am pretty thankful for the opportunity and inspiration that came my way. 
+I hope to keep growing as a dev and as an engineer, and I feel like this project was a great step forward.
+
+#### Final Final Thought
+##### There was a lot of prop drilling done, with most of the data held at the top level component. I think this really helped me understand the usefulness of Redux... so I think I'll read up and practice that next!
