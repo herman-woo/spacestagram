@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This is the front-end portion of the Spacestagram app. In the future, the backend portion will focus on handling user logins and user data.
 
 ## About
-This project is made in the image of instagram with a focus on presenting data from a couple of [Nasa's APIs](https://api.nasa.gov/). It is currently using the folling API's: APOD and Mars Rover Photos. 
+This project is made in the image of instagram with a focus on presenting data from a couple of [Nasa's APIs](https://api.nasa.gov/). It is currently using the following API's: APOD and Mars Rover Photos. 
 
 ### Features
 From the front page/root of the webpage, users will be able to access 3 sections via the tool bar at the bottom of the page:
