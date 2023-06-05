@@ -1,4 +1,4 @@
-const api = 'uTCzdhDIJkuDsqKV8GFOHd2HuvHa0kxq9qg7gifo'
+const api = 'DrEgeC2ok305jh1fHGtE5XdxBqvK7QJFfY5cCUkh'
 const date = new Date()
 const currMonth = date.getUTCMonth()+1
 const currDay = date.getDate()
@@ -13,21 +13,26 @@ const generateRoverDesc = (item) => {
 
 export const getApod = async () => {
     const prevMonth = date.getUTCMonth()
-    const res = await fetch(`https://api.nasa.gov/planetary/apod?start_date=2021-${prevMonth}-${currDay+1}&api_key=${api}`)
-    const data = await res.json()
-    const apod = await data.map((item) => {
-      return {
-        id: "apod-"+item.date,
-        user: "NasaAPOD",
-        date: item.date,
-        type: item.media_type,
-        title: item.title,
-        desc: item.explanation,
-        url: item.url,
-        hdef: item.hdurl
-      }
-    })
-    return apod.reverse().slice(0,30)
+    try{
+      const res = await fetch(`https://api.nasa.gov/planetary/apod?start_date=2021-${prevMonth}-${currDay+1}&api_key=${api}`)
+      const data = await res.json()
+      const apod = await data.map((item) => {
+        return {
+          id: "apod-"+item.date,
+          user: "NasaAPOD",
+          date: item.date,
+          type: item.media_type,
+          title: item.title,
+          desc: item.explanation,
+          url: item.url,
+          hdef: item.hdurl
+        }
+      })
+      return apod.reverse().slice(0,30)
+
+    }
+    catch{
+    }
 }
 
 export const getCuriosity = async () => {
@@ -87,8 +92,8 @@ export const getAll = async () => {
   const spirit = await getSpirit()
   const opportunity = await getOpportunity()
   const curiosity = await getCuriosity()
-  const apod = await getApod()
-  for (let arr of [apod,spirit,opportunity,curiosity]){
+  // const apod = await getApod()
+  for (let arr of [spirit,opportunity,curiosity]){
     arr.map((item) => 
     {
       all.push(item)
