@@ -1,19 +1,17 @@
 {
-  "files": {
-    "main.css": "/spacestagram/static/css/main.2da7cd89.css",
-    "main.js": "/spacestagram/static/js/main.7e59b9ef.js",
-    "static/media/default.jpg": "/spacestagram/static/media/default.c27cae5e6ffcd5df0154.jpg",
-    "static/media/unlike.svg": "/spacestagram/static/media/unlike.7398f4271574c8cda18f.svg",
-    "static/media/liked.svg": "/spacestagram/static/media/liked.db626b089c52a3a201db.svg",
-    "static/media/search.svg": "/spacestagram/static/media/search.c338d478fc85717ee377.svg",
-    "index.html": "/spacestagram/index.html",
-    "static/media/sync.svg": "/spacestagram/static/media/sync.b7f25d078c5ccba70d10.svg",
-    "static/media/home.svg": "/spacestagram/static/media/home.6fc3843789279d042fa2.svg",
-    "main.2da7cd89.css.map": "/spacestagram/static/css/main.2da7cd89.css.map",
-    "main.7e59b9ef.js.map": "/spacestagram/static/js/main.7e59b9ef.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.2da7cd89.css",
-    "static/js/main.7e59b9ef.js"
-  ]
+  "main.css": "/spacestagram/static/css/main.4ba06045.chunk.css",
+  "main.js": "/spacestagram/static/js/main.a8c0dd8d.chunk.js",
+  "main.js.map": "/spacestagram/static/js/main.a8c0dd8d.chunk.js.map",
+  "static/js/1.d2507d2a.chunk.js": "/spacestagram/static/js/1.d2507d2a.chunk.js",
+  "static/js/1.d2507d2a.chunk.js.map": "/spacestagram/static/js/1.d2507d2a.chunk.js.map",
+  "runtime~main.js": "/spacestagram/static/js/runtime~main.993f6ee4.js",
+  "runtime~main.js.map": "/spacestagram/static/js/runtime~main.993f6ee4.js.map",
+  "static/media/App.css": "/spacestagram/static/media/sync.93ce8cc8.svg",
+  "static/media/profile.css": "/spacestagram/static/media/default.ad04c91f.jpg",
+  "static/media/post.css": "/spacestagram/static/media/liked.ccf77d45.svg",
+  "static/media/footer.css": "/spacestagram/static/media/search.4006e702.svg",
+  "static/css/main.4ba06045.chunk.css.map": "/spacestagram/static/css/main.4ba06045.chunk.css.map",
+  "index.html": "/spacestagram/index.html",
+  "precache-manifest.35ed940723ba899272f21fb37f11c956.js": "/spacestagram/precache-manifest.35ed940723ba899272f21fb37f11c956.js",
+  "service-worker.js": "/spacestagram/service-worker.js"
 }
