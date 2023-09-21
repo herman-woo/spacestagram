@@ -1,5 +1,6 @@
+import React from "react";
 import {Component} from "react";
-import { getToday, getYesterday } from "../utils/Date";
+import { getToday, getYesterday, getRollbackDate } from "../utils/Date";
 import Post from "./PostComponent";
 
 class Home extends Component{
@@ -19,11 +20,12 @@ class Home extends Component{
             else{
                 earlier.push(item)
             }
+            return null
         })
         return(
             <div className="home-body">
                 {today.length > 0 && <h5 className="home-subtitle">Today's Posts</h5>}
-                {today.slice(0,5).map((post) => {
+                {today.map((post) => {
                     const liked = likes.filter((like) => like===post.id)
                     return (
                         <Post 
@@ -35,7 +37,7 @@ class Home extends Component{
                     )
                 })}
                 {yesterday.length > 0 && <h5 className="home-subtitle">Yesterday's Posts</h5>}
-                {yesterday.slice(0,5).map((post) => {
+                {yesterday.map((post) => {
                     const liked = likes.filter((like) => like===post.id)
                     return (
                         <Post 
@@ -47,7 +49,7 @@ class Home extends Component{
                     )
                 })}
                 {earlier.length > 0 && <h5 className="home-subtitle">Earlier Posts</h5>}
-                {earlier.slice(0,15).map((post) => {
+                {earlier.map((post) => {
                     const liked = likes.filter((like) => like===post.id)                 
                     return (
                         <Post 
@@ -58,6 +60,9 @@ class Home extends Component{
                         />
                     )
                 })}
+                {
+                    <button className="loading-button" onClick={this.props.loadMorePosts}>Load More</button>
+                }
           </div>
         )
     }

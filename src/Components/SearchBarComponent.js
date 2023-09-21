@@ -1,3 +1,4 @@
+import React from "react";
 import { Component } from "react";
 import '../styles/search.css'
 class SearchBar extends Component{
@@ -11,7 +12,9 @@ class SearchBar extends Component{
     }
     componentDidMount(){
         this.props.search("")
-        this.state.dropdown = false
+        this.setState({
+            dropdown: false
+        })
     }
     render(){
         const {search,data,result} = this.props

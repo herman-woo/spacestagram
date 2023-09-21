@@ -1,3 +1,4 @@
+import React from "react";
 export const startLoading = (tag) => {
     let loader = document.createElement('div')
     let main = document.getElementById(tag)

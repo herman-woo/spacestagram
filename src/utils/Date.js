@@ -1,38 +1,46 @@
 const date = new Date()
-const monthString = date.toString().slice(4,7)
-const month = "0"+(date.getMonth()+1).toString()
-const dayData = date.getDate().toString()
-const year = date.getFullYear()
+const monthName = date.toString().slice(4,7)
 
+const month = "0"+(date.getMonth()+1).toString()
+const currentDay = date.getDate()
+const currentDayString = currentDay.toString()
+const currentYear = date.getFullYear()
+
+//Gets the day for the Header where the month name is eng and there are suffix with the date
+//Format: 'Sep 20th 2023'
 export function getDay(){
-    const daySuffix = () => {
-        if(dayData.slice(-1) === "1" && dayData.slice(0,1) !== "1"){
-                return "st"
-        }
-        else if(dayData.slice(-1) === "2" && dayData.slice(0,1) !== "1"){
-            return "nd"
-        }
-        else if(dayData.slice(-1) === "3" && dayData.slice(0,1) !== "1"){
-            return "rd"
-        }
-        else{
-            return "th"
-        }
-    }
-    const day = dayData+daySuffix()
-    const today = `${monthString} ${day} ${year}`
-    return today
+    const day = currentDayString + daySuffix()
+    return `${monthName} ${day} ${currentYear}`
 }
+
+//Gets String value '2023-09-20' for comparison against posts
 export function getToday(){
-    const date = `${year}-${month.slice(-2)}-${dayData}`
+    const date = `${currentYear}-${month.slice(-2)}-${currentDayString}`
     return date
 }
 export function getYesterday(){
-    const date = `${year}-${month.slice(-2)}-${dayData-1}`
-    return date
-}
-export function getPreviousDate(x){
-    const date = `${year}-${month.slice(-2)}-${dayData-1-x}`
+    const date = `${currentYear}-${month.slice(-2)}-${currentDayString-1}`
     return date
 }
 
+//Gets any string date with the x amount of roll back
+
+export function getRollbackDate(rollback) {
+    const day = currentYear.toString()+"-"+month+"-"+(currentDay-rollback).toString()
+    return day
+}
+
+function daySuffix(){
+    if(currentDayString.slice(-1) === "1" && currentDayString.slice(0,1) !== "1"){
+        return "st"
+    }
+    else if(currentDayString.slice(-1) === "2" && currentDayString.slice(0,1) !== "1"){
+        return "nd"
+    }
+    else if(currentDayString.slice(-1) === "3" && currentDayString.slice(0,1) !== "1"){
+        return "rd"
+    }
+    else{
+        return "th"
+    }
+}

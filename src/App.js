@@ -1,3 +1,4 @@
+import React from "react";
 import { Component } from 'react';
 import { Switch,Route } from 'react-router';
 import './styles/App.css';
@@ -18,10 +19,11 @@ class App extends Component{
   state = {
     data: [],
     likes: [],
-    search: ''
+    search: '',
+    loadMore: 0
   }
   async getData(){
-    const res = await NasaAPI.getAll()
+    const res = await NasaAPI.getAllPosts()
     this.setState({
       data: res
     })
@@ -47,6 +49,19 @@ class App extends Component{
     })
     this.updateLocal(update)
   }
+
+  loadMorePosts = async () => {
+    console.log("loading more posts"+this.state.loadMore)
+    const res = await NasaAPI.addApod(this.state.loadMore)
+    const update = this.state.data.concat(res)
+    const loadUpate = this.state.loadMore + 2
+    this.setState({
+      data: update
+    })
+    this.setState({
+      loadMore: loadUpate
+    })
+  }
   updateLocal = (data) => {
     localStorage.setItem('likes',data)
   }
@@ -64,6 +79,7 @@ class App extends Component{
     this.getData()
     startLoading("main")
   }
+
   render(){
     return(
       <div className="app" id="app">
@@ -78,7 +94,7 @@ class App extends Component{
         <main id="main">
           <Switch>
             <Route exact path='/' render={() =>
-              <Home data={this.state.data} likes={this.state.likes} addLike={this.addLike} unLike={this.unLike}/>
+              <Home data={this.state.data} likes={this.state.likes} addLike={this.addLike} unLike={this.unLike} loadMorePosts={this.loadMorePosts}/>
             }/>
             <Route exact path='/search' render={() =>
               <Search data={this.state.data} search={this.state.search}/>
