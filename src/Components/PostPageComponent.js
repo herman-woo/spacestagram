@@ -3,6 +3,7 @@ import { Component } from "react";
 import { Link } from "react-router-dom";
 import * as ux from "../utils/uxFunctions"
 import '../styles/page.css'
+import LoadButton from "./LoadButtonComponent";
 class PostPage extends Component{
     componentDidMount(){
         ux.top("page-topper")

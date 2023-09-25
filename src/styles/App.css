@@ -46,15 +46,9 @@ button{
 .liked-header{
   margin: 30px;
 }
-#loading{
-  background-color: rgb(247, 247, 247);
+
+#refreshing-animation{
   margin-top: 30vh;
-  background-image: url(./icons/sync.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 50px;
-  width: 50px;
   transform: "scale(2,2) scale(-1,1)";
   animation-name: loader;
   animation-iteration-count: infinite;

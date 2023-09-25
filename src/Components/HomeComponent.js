@@ -2,6 +2,7 @@ import React from "react";
 import {Component} from "react";
 import { getToday, getYesterday, getRollbackDate } from "../utils/Date";
 import Post from "./PostComponent";
+import LoadButton from "./LoadButtonComponent";
 
 class Home extends Component{
     render(){
@@ -60,8 +61,11 @@ class Home extends Component{
                         />
                     )
                 })}
-                {
-                    <button className="loading-button" onClick={this.props.loadMorePosts}>Load More</button>
+                {data.length > 0 &&
+                    <button className="loading" onClick={this.props.loadMorePosts}></button>
+                }
+                {data.length > 0 &&
+                    <LoadButton loadMore = {this.props.loadMorePosts}/>
                 }
           </div>
         )

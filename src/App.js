@@ -20,7 +20,10 @@ class App extends Component{
     data: [],
     likes: [],
     search: '',
-    loadMore: 0
+    pageNumber: 0,
+    earliestDate: 0,
+    earliestMonth: 0,
+    earliestYear: 0
   }
   async getData(){
     const res = await NasaAPI.getAllPosts()
@@ -51,16 +54,16 @@ class App extends Component{
   }
 
   loadMorePosts = async () => {
-    console.log("loading more posts"+this.state.loadMore)
-    const res = await NasaAPI.addApod(this.state.loadMore)
+    const res = await NasaAPI.addApod(this.state.pageNumber)
     const update = this.state.data.concat(res)
-    const loadUpate = this.state.loadMore + 2
+    const loadUpate = this.state.pageNumber + 1
     this.setState({
       data: update
     })
     this.setState({
-      loadMore: loadUpate
+      pageNumber: loadUpate
     })
+    console.log("Page: "+this.state.pageNumber)
   }
   updateLocal = (data) => {
     localStorage.setItem('likes',data)
@@ -85,11 +88,11 @@ class App extends Component{
       <div className="app" id="app">
         <Switch>
           <Route exact path='/search' render={() =>
-                <SearchBar data={this.state.data} result={this.state.search} search={this.updateSearch}/>
-              }/>
+            <SearchBar data={this.state.data} result={this.state.search} search={this.updateSearch}/>
+          }/>
           <Route path='/' render={() =>
-                <Header />
-              }/>
+            <Header />
+          }/>
         </Switch>
         <main id="main">
           <Switch>
@@ -106,7 +109,7 @@ class App extends Component{
               </div>
             }/>
             <Route exact path='/user/:id' render={() =>
-              <User data={this.state.data}/>
+              <User data={this.state.data} loadMore={this.loadMorePosts}/>
             }/>
             <Route exact path='/user/:id/:postid' render={() =>
               <PostLoader data={this.state.data} likes={this.state.likes} addLike={this.addLike} unLike={this.unLike}/>

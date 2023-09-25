@@ -1,0 +1,28 @@
+.loading{
+    background-color: rgb(247, 247, 247);
+    background-image: url(./icons/sync.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50px;
+    width: 50px;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+
+.loading:hover{
+    cursor: pointer;
+}
+
+  @media(max-width:800px){
+    
+  }
+  @media(min-width:451px) and (max-width:600px){
+   
+  }
+  @media(max-width:600px){
+
+  }
+  @media(max-width:450px){
+
+  }

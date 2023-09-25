@@ -3,10 +3,11 @@ export const startLoading = (tag) => {
     let loader = document.createElement('div')
     let main = document.getElementById(tag)
     main.appendChild(loader)
-    loader.id = "loading"
+    loader.id = "refreshing-animation"
+    loader.className = "loading"
 }         
 export const finishedLoading = () => {
-    const loading = document.getElementById("loading")
+    const loading = document.getElementById("refreshing-animation")
     if(loading){
         loading.remove();            
     }

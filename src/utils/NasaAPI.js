@@ -10,11 +10,10 @@ import { getRollbackDate } from "./Date"
 
 //Key should not be a constant in the code, Should use an ENV file to simulate passing in key
 const api = 'DrEgeC2ok305jh1fHGtE5XdxBqvK7QJFfY5cCUkh'
-var rollback = 6;
+var rollback = 9;
 //getApod function is the main sync call for the page
 //beware of loading times, the further back we go the longer it takes to retrieve information 
 export const getApod = async () => {
-  rollback = 6
   try {
     const res = await fetch(`https://api.nasa.gov/planetary/apod?start_date=${getRollbackDate(rollback - 1)}&end_date=${getRollbackDate(0)}&api_key=${api}`)
     const data = await res.json()
@@ -37,10 +36,10 @@ export const getApod = async () => {
   }
 }
 
-export const addApod = async (loadMore) => {
+export const addApod = async (pageNumber) => {
   console.log(rollback)
   try {
-    const res = await fetch(`https://api.nasa.gov/planetary/apod?start_date=${getRollbackDate(loadMore + rollback + 7)}&end_date=${getRollbackDate(loadMore + rollback + 6)}&api_key=${api}`)
+    const res = await fetch(`https://api.nasa.gov/planetary/apod?start_date=${getRollbackDate((pageNumber * 3) + rollback+8)}&end_date=${getRollbackDate((pageNumber * 3) + rollback + 6)}&api_key=${api}`)
     const data = await res.json()
     const apod = await data.map((item) => {
       return {
@@ -121,9 +120,9 @@ const generateRoverDesc = (item) => {
 
 export const getAllPosts = async () => {
   const all = []
-  const spirit = await getSpirit()
-  const opportunity = await getOpportunity()
-  const curiosity = await getCuriosity()
+  // const spirit = await getSpirit()
+  // const opportunity = await getOpportunity()
+  // const curiosity = await getCuriosity()
   const apod = await getApod()
   for (let arr of [apod /*, curiosity, opportunity, spirit*/]) {
     if (arr) {
