@@ -1,30 +1,17 @@
 const date = new Date()
-const monthName = date.toString().slice(4, 7)
-
-const currentMonth = date.getMonth() + 1
-const currentMonthString = "0" + (date.getMonth() + 1).toString()
 const currentDay = date.getDate()
 const currentDayString = currentDay.toString()
+const monthName = date.toString().slice(4, 7)
+const currentMonth = date.getMonth() + 1
+const currentMonthString = "0" + currentMonth.toString()
 const currentYear = date.getFullYear()
 
 //Gets the day for the Header where the month name is eng and there are suffix with the date
 //Format: 'Sep 20th 2023'
 export function getDay() {
-    const day = currentDayString + daySuffix()
+    const day = currentDayString + getSuffix()
     return `${monthName} ${day} ${currentYear}`
 }
-
-export function getDayNum() {
-    return currentDay
-}
-export function getMonthNum() {
-    return currentMonth
-}
-export function getYearNum() {
-    return currentYear
-}
-
-
 
 //Gets String value '2023-09-20' for comparison against posts
 export function getToday() {
@@ -36,43 +23,38 @@ export function getYesterday() {
     return date
 }
 
-//Gets any string date with the x amount of roll back
+//can currently only handle rollbacks that are less than 31 days
+//Gets any date in format '20xx-xx-xx' n amount of roll back
+export function getRollbackDate(rollback,startingDate) {
+    //format for day is always 20XX-XX-XX
+    //therefore splitting by '-' will always create an array of 3 numbers
+    //ex [2023,09,23] or [2024,1,15]
+    //currently also dont really account for leap years
+    let day = startingDate.split('-')[2]
+    let month = startingDate.split('-')[1]
+    let year = startingDate.split('-')[0]
 
-export function getRollbackDate(rollback) {
-    let day = currentDay
-    let month = currentMonth
-    let year = currentYear
-    let daysPast;
-    if (rollback >= day) {
-        while (rollback > 0){
-            rollback = rollback - day
-            month = month - 1
-            if (month == 0){
-                month = 12
-                year = year - 1
-            }
-            daysPast = getDaysPast(month)
-            if (rollback >= daysPast){
-                day = daysPast
-            }
-            else{
-                day = daysPast - rollback
-            }
+    if (rollback > day){
+        if (month == 1){
+            month = 12
+            year -= 1
         }
-        console.log("current day is " + currentDay + " rollback by "+ rollback + "to: " + day )
-
-        day =1
+        else{
+            month -= 1
+        }
+        day -= rollback
+        day += getDaysPast(month)
     }
-    else {
-        day = currentDay - rollback;
-        console.log("current day is " + currentDay + " rollback to: " + day )
+    else{
+        day -= rollback 
     }
 
     const date = year.toString() + "-" + month.toString() + "-" + day.toString()
+    // console.log(`Rolled back to ${date}`)
     return date
 }
 
-function daySuffix() {
+function getSuffix() {
     if (currentDayString.slice(-1) === "1" && currentDayString.slice(0, 1) !== "1") {
         return "st"
     }
@@ -88,35 +70,30 @@ function daySuffix() {
 }
 
 function getDaysPast(month) {
-    let jan, mar, may, jul, aug, oct, dec = 31
-    let feb = 28
-    let apr, jun, sep, nov = 30
     switch (month) {
         case 1:
-            return jan
+            return 31
         case 2:
-            return feb
+            return 28
         case 3:
-            return mar 
+            return 31 
         case 4:
-            return apr
+            return 30
         case 5:
-            return may
+            return 31
         case 6:
-            return jun
+            return 30
         case 7:
-            return jul
+            return 31
         case 8:
-            return aug
+            return 31
         case 9:
-            return sep
+            return 30
         case 10:
-            return oct
+            return 31
         case 11:
-            return nov
+            return 30
         case 12:
-            return dec
-    
-
+            return 31
     }
 }

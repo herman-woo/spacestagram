@@ -62,9 +62,6 @@ class Home extends Component{
                     )
                 })}
                 {data.length > 0 &&
-                    <button className="loading" onClick={this.props.loadMorePosts}></button>
-                }
-                {data.length > 0 &&
                     <LoadButton loadMore = {this.props.loadMorePosts}/>
                 }
           </div>
